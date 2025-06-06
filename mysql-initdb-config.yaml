@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-initdb-config
+data:
+  init.sql: |
+    CREATE DATABASE IF NOT EXISTS proiectdb;
+    USE proiectdb;
+
+    CREATE TABLE IF NOT EXISTS users (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100),
+        email VARCHAR(100) UNIQUE,
+        password VARCHAR(255),
+        role VARCHAR(50)
+    );
